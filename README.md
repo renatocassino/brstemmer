@@ -38,3 +38,13 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/tacnom
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+### Test
+
+To run tests:
+
+```
+    $ bundle exec rspec
+```
+
+### TODO!
+Write more tests for rules augmentative_reduction, noun_reduction, verb_reduction, vowel_reduction and accent_reduction.

@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Brstemmer do
-  context "#apply_rules_by_name" do
+  def set_instance(word)
+    @stemmer = Brstemmer::Stemmer.new word
+  end
 
-    def set_instance(word)
-      @stemmer = Brstemmer::Stemmer.new word
-    end
+  context "#apply_rules_by_name plural" do
 
     it '.plural_reduction for `ores`' do
       set_instance 'corredores'
@@ -72,5 +72,79 @@ describe Brstemmer do
       set_instance 'casas'
       expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'casa'
     end
+  end
+
+  context "#apply_rules_by_name adverb_reduction" do
+    it '.adverb_reduction' do
+      set_instance 'felizmente'
+      expect(@stemmer.apply_rules_by_name 'adverb_reduction').to eq 'feliz'
+    end
+  end
+
+  context "#apply_rules_by_name feminine_reduction" do
+    it '.feminine_reduction `ona`' do
+      set_instance 'chefona'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'chefão'
+    end
+
+    it '.feminine_reduction `ã`' do
+      set_instance 'vilã'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'vilão'
+    end
+
+    it '.feminine_reduction `ora`' do
+      set_instance 'professora'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'professor'
+    end
+
+    it '.feminine_reduction `ana`' do
+      set_instance 'americana'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'americano'
+    end
+
+    it '.feminine_reduction `inha`' do
+      set_instance 'sozinha'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'sozinho'
+    end
+    it '.feminine_reduction `esa`' do
+      set_instance 'inglesa'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'inglês'
+    end
+
+    it '.feminine_reduction `íaca`' do
+      set_instance 'maníaca'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'maníaco'
+    end
+
+    it '.feminine_reduction `ica`' do
+      set_instance 'prática'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'prático'
+    end
+
+    it '.feminine_reduction `ada`' do
+      set_instance 'cansada'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'cansado'
+    end
+
+    it '.feminine_reduction `ida`' do
+      set_instance 'mantida'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'mantido'
+    end
+
+    # it '.feminine_reduction `ima`' do
+    #   set_instance 'prima'
+    #   expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'primo'
+    # end
+
+    it '.feminine_reduction `iva`' do
+      set_instance 'passiva'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'passivo'
+    end
+
+    it '.feminine_reduction `eira`' do
+      set_instance 'primeira'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'primeiro'
+    end
+
   end
 end
