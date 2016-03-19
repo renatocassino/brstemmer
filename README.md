@@ -21,9 +21,12 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+    require 'brstemmer'
     puts "Correndo".brstemmer
-
     # Corr
+
+    puts "pulei".brstemmer
+    # pul
 ```
 
 ## Contributing
