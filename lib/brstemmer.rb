@@ -571,7 +571,7 @@ end
 
 class String
   def brstemmer
-    word = StemmifyHelper::Stemmer.new self.dup.to_s
+    word = Brstemmer::Stemmer.new self.dup.to_s
     word.render
   end
 end
