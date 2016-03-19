@@ -570,7 +570,7 @@ module Brstemmer
 end
 
 class String
-  def stemmer
+  def brstemmer
     word = StemmifyHelper::Stemmer.new self.dup.to_s
     word.render
   end
