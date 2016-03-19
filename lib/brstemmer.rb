@@ -559,7 +559,7 @@ module Brstemmer
       aux_word = @word
       if @word =~ /#{suffix}$/
         @word.gsub!(/#{suffix}$/, replaced) if
-            (not excpts.nil? and excpts.detect { |expt| @word == expt }.nil? or excpts.nil?) and @word.length - suffix.length >= size
+            ((not excpts.nil? and excpts.detect { |expt| @word == expt }.nil?) or excpts.nil?) and (@word.length - suffix.length + replaced.length) >= size
       end
 
       @suffix_removed = true if aux_word != @word

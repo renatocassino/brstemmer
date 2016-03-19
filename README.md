@@ -48,3 +48,13 @@ To run tests:
 
 ### TODO!
 Write more tests for rules augmentative_reduction, noun_reduction, verb_reduction, vowel_reduction and accent_reduction.
+
+# Changelog
+
+### 0.1.1
+- Fix bug with suffix size
+
+### 0.1.0
+- Initial commit
+- Stemmer br
+- Basic tests

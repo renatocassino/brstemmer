@@ -57,16 +57,15 @@ describe Brstemmer do
       expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'barril'
     end
 
-    # TODO! Fix this
-    # it '.plural_reduction for `les`' do
-    #   set_instance 'males'
-    #   expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'mal'
-    # end
+    it '.plural_reduction for `les`' do
+      set_instance 'males'
+      expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'mal'
+    end
 
-    # it '.plural_reduction for `res`' do
-    #   set_instance 'lares'
-    #   expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'lar'
-    # end
+    it '.plural_reduction for `res`' do
+      set_instance 'lares'
+      expect(@stemmer.apply_rules_by_name 'plural_reduction').to eq 'lar'
+    end
 
     it '.plural_reduction for `asas`' do
       set_instance 'casas'
@@ -131,10 +130,10 @@ describe Brstemmer do
       expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'mantido'
     end
 
-    # it '.feminine_reduction `ima`' do
-    #   set_instance 'prima'
-    #   expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'primo'
-    # end
+    it '.feminine_reduction `ima`' do
+      set_instance 'prima'
+      expect(@stemmer.apply_rules_by_name 'feminine_reduction').to eq 'primo'
+    end
 
     it '.feminine_reduction `iva`' do
       set_instance 'passiva'
